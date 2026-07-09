@@ -13,21 +13,21 @@ app.post('/api/donate', (req, res) => {
 
   POST /mpesa/stkpush/v1/processrequest HTTP/1.1
 Host: sandbox.safaricom.co.ke
-Authorization: Bearer {access_token}
+Authorization: Bearer {'alRRZ0J3VmxxRVl6M3FOY0ExQW9lZXZBWHQ2U01MQjd4OUF3dndWMHFRR3lndlplMzplQ2tuUTJybHdiUVZ5ajZnZXM2YzZPNGZ1TjMyb1QydkdJNmtRNHh0WkprU0hE'}
 Content-Type: application/json
 
-({
-  "BusinessShortCode": "{shortcode}",
-  "Password": "{password}",
-  "Timestamp": "{timestamp}",
+
+  ({"BusinessShortCode": "{9035436}",
+  "Password": "{'OTAzNTQzNmJmYjI3OWY5YWE5YmRiY2YxNThlOTdkZDcxYTQ2N2NkMmUwYzg5MzA1OWIxMGY3OGU2YjcyYWRhMWVkMmM5MTkyMDI2MDcwOTIyMzU1NA==',}",
+  "Timestamp": "{'20260709223554'}",
   "TransactionType": "CustomerPayBillOnline",
-  "Amount": {amount},
-  "PartyA": "{phone_number}",
-  "PartyB": "{shortcode}",
-  "PhoneNumber": "{phone_number}",
-  "CallBackURL": "{callback_url}",
-  "AccountReference": "{account_reference}",
-  "TransactionDesc": "{transaction_description}"
+  "Amount": {80000},
+  "PartyA": "{254743644461}",
+  "PartyB": "{9035436}",
+  "PhoneNumber":"{254743544461",
+  "CallBackURL": "{https://mpesa-mk8c.onrender.com/callback";}",
+  "AccountReference": "{order123}",
+  "TransactionDesc": "{payment for goods}"
 });
   
 
