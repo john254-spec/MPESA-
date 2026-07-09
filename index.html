@@ -12,7 +12,37 @@
         <button id="donateButton">Send Money</button>
     </div>
     <script>
-  // paste the contents of script.js here
+document.getElementById('donateButton').addEventListener('click', function() {
+    console.log("Donate button clicked");   
+    const consumerKey = "jTQgBwVlqEYz3qNcA1AoeevAXt6SMLB7x9AwvwV0qQGygvZe3";
+    const consumerSecret = "eCknQ2rlwbQVyj6ges6c6O4fuN32oT2vGI6kQ4xtZJkSHD";
+    const shortcode = "9035436";
+    const amount = 800000; // Amount to send
+    const phoneNumber = '0743544461'; // Recipient's phone number
+
+    fetch('/api/donate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            consumerKey,
+            consumerSecret,
+            shortcode,
+            amount,
+            phoneNumber
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Donation successful: ' + data.message);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Donation failed. Please try again.');
+    });
+});
+        
     </script>
 </body>
 </html>
