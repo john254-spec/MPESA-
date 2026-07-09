@@ -11,8 +11,25 @@ app.get('/health', (req, res) => {
 app.post('/api/donate', (req, res) => {
   const { consumerKey, consumerSecret, shortcode, amount, phoneNumber } = req.body;
 
-  // TODO: Implement your M-Pesa API call here using credentials stored
-  // in environment variables rather than accepting secrets from clients.
+  POST /mpesa/stkpush/v1/processrequest HTTP/1.1
+Host: sandbox.safaricom.co.ke
+Authorization: Bearer {access_token}
+Content-Type: application/json
+
+({
+  "BusinessShortCode": "{shortcode}",
+  "Password": "{password}",
+  "Timestamp": "{timestamp}",
+  "TransactionType": "CustomerPayBillOnline",
+  "Amount": {amount},
+  "PartyA": "{phone_number}",
+  "PartyB": "{shortcode}",
+  "PhoneNumber": "{phone_number}",
+  "CallBackURL": "{callback_url}",
+  "AccountReference": "{account_reference}",
+  "TransactionDesc": "{transaction_description}"
+});
+  
 
   res.json({
     message: 'Donation request received',
