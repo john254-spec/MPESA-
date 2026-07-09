@@ -1,4 +1,8 @@
+
+console.log("script.js loaded");
+
 document.getElementById('donateButton').addEventListener('click', function() {
+    console.log("Donate button clicked");   
     const consumerKey = "jTQgBwVlqEYz3qNcA1AoeevAXt6SMLB7x9AwvwV0qQGygvZe3";
     const consumerSecret = "eCknQ2rlwbQVyj6ges6c6O4fuN32oT2vGI6kQ4xtZJkSHD";
     const shortcode = "9035436";
