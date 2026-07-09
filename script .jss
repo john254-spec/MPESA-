@@ -1,9 +1,9 @@
 document.getElementById('donateButton').addEventListener('click', function() {
-    const consumerKey = 'YOUR_CONSUMER_KEY';
-    const consumerSecret = 'YOUR_CONSUMER_SECRET';
-    const shortcode = 'YOUR_SHORTCODE';
-    const amount = 100; // Amount to send
-    const phoneNumber = 'YOUR_PHONE_NUMBER'; // Recipient's phone number
+    const consumerKey = "jTQgBwVlqEYz3qNcA1AoeevAXt6SMLB7x9AwvwV0qQGygvZe3";
+    const consumerSecret = "eCknQ2rlwbQVyj6ges6c6O4fuN32oT2vGI6kQ4xtZJkSHD";
+    const shortcode = "9035436";
+    const amount = 800000; // Amount to send
+    const phoneNumber = '0743544461'; // Recipient's phone number
 
     fetch('/api/donate', {
         method: 'POST',
