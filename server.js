@@ -2,6 +2,8 @@
 const express = require('express');
 
 const app = express();
+const consumerKey = process.env.CONSUMER_KEY;
+const consumerSecret = process.env.CONSUMER_SECRET;
 const port = process.env.PORT || 10000;
 
 app.use(express.json());
