@@ -27,9 +27,9 @@ app.post('/api/donate', (req, res) => {
     shortcode,
     amount,
     phoneNumber
-  });
+  });                 
 });
-
+app.use(express.static('public'));
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
