@@ -7,7 +7,7 @@ const consumerSecret = process.env.CONSUMER_SECRET;
 const port = process.env.PORT || 10000;
 
 app.use(express.json());
-
+app.use(express.static('public'));
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
@@ -25,7 +25,6 @@ app.post('/api/donate', (req, res) => {
     phoneNumber
   });                 
 });
-app.use(express.static('public'));
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
