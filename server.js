@@ -1,17 +1,14 @@
 
 const express = require('express');
-
 const app = express();
 const consumerKey = process.env.CONSUMER_KEY;
 const consumerSecret = process.env.CONSUMER_SECRET;
 const port = process.env.PORT || 10000;
-
-app.use(express.json());
 app.use(express.static('public'));
+app.use(express.json());
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
-
 app.post('/api/donate', (req, res) => {
   const { consumerKey, consumerSecret, shortcode, amount, phoneNumber } = req.body;
 
