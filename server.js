@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const consumerKey = process.env.CONSUMER_KEY;
