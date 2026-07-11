@@ -11,32 +11,53 @@ app.get('/health', (req, res) => {
 app.post('/api/donate', (req, res) => {
   const { consumerKey, consumerSecret, shortcode, amount, phoneNumber } = req.body;
 
-  POST /mpesa/stkpush/v1/processrequest HTTP/1.1
-Host: sandbox.safaricom.co.ke
-Authorization: Bearer {'alRRZ0J3VmxxRVl6M3FOY0ExQW9lZXZBWHQ2U01MQjd4OUF3dndWMHFRR3lndlplMzplQ2tuUTJybHdiUVZ5ajZnZXM2YzZPNGZ1TjMyb1QydkdJNmtRNHh0WkprU0hE'}
-Content-Type: application/json
+  const axios = require('axios');
 
+app.post('/api/donate', async (req, res) => {
+    const { shortcode, amount, phoneNumber } = req.body;
 
-  ({"BusinessShortCode": "{9035436}",
-  "Password": "{'OTAzNTQzNmJmYjI3OWY5YWE5YmRiY2YxNThlOTdkZDcxYTQ2N2NkMmUwYzg5MzA1OWIxMGY3OGU2YjcyYWRhMWVkMmM5MTkyMDI2MDcwOTIyMzU1NA==',}",
-  "Timestamp": "{'20260709223554'}",
-  "TransactionType": "CustomerPayBillOnline",
-  "Amount": {80000},
-  "PartyA": "{254743644461}",
-  "PartyB": "{9035436}",
-  "PhoneNumber":"{254743544461",
-  "CallBackURL": "{https://mpesa-mk8c.onrender.com/callback";}",
-  "AccountReference": "{order123}",
-  "TransactionDesc": "{payment for goods}"
+    try {
+        const response = await axios.post('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest', {
+            "BusinessShortCode": 9035436,
+            "Password": Buffer.from(`${shortcode}${consumerSecret}${new Date().toISOString().slice(0, 19).replace('T', '')}`).toString('base64'),
+            "Timestamp": new Date().toISOString().slice(0, 19).replace('T', ''),
+            "TransactionType": "CustomerBuyGoodsOnline",
+            "Amount": 80000,
+            "PartyA": 254743644461,
+            "PartyB": 9035436,
+            "PhoneNumber": 254743644461,
+            "CallBackURL": "https://mpesa-mk8c.onrender.com/callback", // Replace with your callback URL
+            "AccountReference": "Donation",
+            "TransactionDesc": "Donation to charity"
+        }, {
+            headers: {
+                'Authorization': `Bearer ${await getAccessToken()}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        res.json({
+            message: 'Donation request processed',
+            response: response.data
+        });
+    } catch (error) {
+        console.error('Error processing donation:', error);
+        res.status(500).json({ message: 'Error processing donation' });
+    }
 });
-  
 
-  res.json({
-    message: 'Donation request received',
-    shortcode,
-    amount,
-    phoneNumber
-  });                 
+// Function to get access token
+async function getAccessToken() {
+    const response = await axios.get('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials', {
+        auth: {
+            username: consumerKey,
+            password: consumerSecret
+        }
+    });
+    return response.data.access_token;
+}
+
+                 
 });
 const fs = require('fs');
 
