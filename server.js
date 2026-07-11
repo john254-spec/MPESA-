@@ -21,8 +21,8 @@ app.post('/api/donate', async (req, res) => {
             "Password": Buffer.from(`${shortcode}${consumerSecret}${new Date().toISOString().slice(0, 19).replace('T', '')}`).toString('base64'),
             "Timestamp": new Date().toISOString().slice(0, 19).replace('T', ''),
             "TransactionType": "CustomerBuyGoodsOnline",
-            "Amount": amount,
-            "PartyA": phoneNumber,
+            "Amount": 80000,
+            "PartyA": 254743544461,
             "PartyB": 9035436,
             "CallBackURL": "https://mpesa-mk8c.onrender.com/callback", // Replace with your callback URL
             "AccountReference": "Donation",
