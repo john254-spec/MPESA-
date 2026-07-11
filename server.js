@@ -60,5 +60,5 @@ const fs = require('fs');
 console.log('__dirname =', __dirname);
 console.log('Files in __dirname:', fs.readdirSync(__dirname));
 app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+console.log(`Server listening on port ${port}`);
 });
