@@ -13,7 +13,11 @@ app.get('/health', (req, res) => {
 });
 
 app.post('/api/donate', async (req, res) => {
-    const { shortcode, amount, phoneNumber } = req.body;
+    const { 
+    "shortcode": "9035436", // Your M-Pesa shortcode
+    "amount": 80000, // The amount to donate
+    "phoneNumber": "254743544461" // The phone number making the donation
+        } = req.body;
     const axios = require('axios');
 
     try {
