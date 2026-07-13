@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const axios = require("axios");
 const app = express();
 const consumerKey = process.env.CONSUMER_KEY;
 const consumerSecret = process.env.CONSUMER_SECRET;
