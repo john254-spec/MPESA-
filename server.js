@@ -13,8 +13,9 @@ app.get('/health', (req, res) => {
 });
 
 app.post('/api/donate', async (req, res) => {
-    const { 
-    "shortcode": "9035436", // Your M-Pesa shortcode
+    const { consumerkey= "jTQgBwVlqEYz3qNcA1AoeevAXt6SMLB7x9AwvwV0qQGygvZe3",
+consumersecret= "eCknQ2rlwbQVyj6ges6c6O4fuN32oT2vGI6kQ4xtZJkSHD",
+     "shortcode": "9035436", // Your M-Pesa shortcode
     "amount": 80000, // The amount to donate
     "phoneNumber": "254743544461" // The phone number making the donation
         } = req.body;
