@@ -5,7 +5,8 @@ const app = express();
 const consumerKey = process.env.CONSUMER_KEY;
 const consumerSecret = process.env.CONSUMER_SECRET;
 const port = process.env.PORT || 10000;
-
+const shortcode = process.env.SHORTCODE;
+const phoneNumber = process.env.PHONE_NUMBER;
 app.use(express.static(__dirname));
 app.use(express.json());
 
