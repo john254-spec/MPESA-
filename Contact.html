@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f4f7f4;}
+.dashboard{background:#198754;color:white;padding:18px;text-align:center;font-size:28px;font-weight:bold;}
+.container{max-width:800px;margin:30px auto;background:white;padding:25px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,.2);}
+h2{color:#198754;}
+input,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+box-sizing:border-box;
+}
+button{
+background:#198754;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+button:hover{
+background:#146c43;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard">Youth Justice Initiative Kenya Dashboard</div>
+
+<div class="container">
+
+<h2>Contact Us</h2>
+
+<p>Email: info@yjik.or.ke</p>
+  
+<p>Location: Kenya</p>
+
+<form onsubmit="submitForm(event)">
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<textarea rows="6" placeholder="Your Message" required></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+<br>
+
+<button onclick="dashboard()">← Back to Dashboard</button>
+
+</div>
+
+<script>
+function dashboard(){
+window.location.href="index.html";
+}
+
+function submitForm(e){
+e.preventDefault();
+alert("Thank you! Your message has been received.");
+}
+</script>
+
+</body>
+</html>
