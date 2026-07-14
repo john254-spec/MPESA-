@@ -16,11 +16,7 @@ app.get('/health', (req, res) => {
 
 app.post('/api/donate', async (req, res) => {
     
-    const{ CONSUMER_KEY= "jTQgBwVlqEYz3qNcA1AoeevAXt6SMLB7x9AwvwV0qQGygvZe3",
-CONSUMER_SECRET= "eCknQ2rlwbQVyj6ges6c6O4fuN32oT2vGI6kQ4xtZJkSHD",
-     SHORT_CODE = 9035436, 
-    AMOUNT = 80000, 
-    PHONE_NUMBER= 254743544461,
+const { AMOUNT, PHONE_NUMBER } = req.body;
         } = req.body;
     
 try {
