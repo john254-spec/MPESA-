@@ -15,7 +15,7 @@ app.get('/health', (req, res) => {
 });
         app.post('/api/donate', async (req, res) => {
 
-    const { amount, phoneNumber } = req.body;
+    const { AMOUNT, PHONE_NUMBER } = req.body;
 
     
 try {
