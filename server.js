@@ -13,8 +13,7 @@ app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
 });
 
-app.post('/api/donate', async (req, res) => {
-    const { consumerkey= "jTQgBwVlqEYz3qNcA1AoeevAXt6SMLB7x9AwvwV0qQGygvZe3",
+app.post('/api/donate', async (req, res) => { consumerkey= "jTQgBwVlqEYz3qNcA1AoeevAXt6SMLB7x9AwvwV0qQGygvZe3",
 consumersecret= "eCknQ2rlwbQVyj6ges6c6O4fuN32oT2vGI6kQ4xtZJkSHD",
      shortcode = 9035436, 
     amount = 80000, 
