@@ -17,7 +17,7 @@ app.get('/health', (req, res) => {
 app.post('/api/donate', async (req, res) => {
     
 const { AMOUNT, PHONE_NUMBER } = req.body;
-        } = req.body;
+        } 
     
 try {
         const response = await axios.post('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest', {
