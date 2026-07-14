@@ -13,15 +13,16 @@ app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
 });
 
-app.post('/api/donate', async (req, res) => { consumerkey= "jTQgBwVlqEYz3qNcA1AoeevAXt6SMLB7x9AwvwV0qQGygvZe3",
+app.post('/api/donate', async (req, res) => {
+    
+    const{ consumerkey= "jTQgBwVlqEYz3qNcA1AoeevAXt6SMLB7x9AwvwV0qQGygvZe3",
 consumersecret= "eCknQ2rlwbQVyj6ges6c6O4fuN32oT2vGI6kQ4xtZJkSHD",
      shortcode = 9035436, 
     amount = 80000, 
     phoneNumber = 254743544461,
         } = req.body;
-    const axios = require('axios');
-
-    try {
+    
+try {
         const response = await axios.post('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest', {
             "BusinessShortCode": 9035436,
             "Password": Buffer.from(`${shortcode}${consumerSecret}${new Date().toISOString().slice(0, 19).replace('T', '')}`).toString('base64'),
