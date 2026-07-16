@@ -37,8 +37,8 @@ app.post('/api/donate', async (req, res) => {
 
         // Replace YOUR_MPESA_PASSKEY with your Daraja passkey
         const password = Buffer.from(
-            `${shortcode}SHOW8i0jcft1odqVM7H7D1rgnJHaqjBeVW3ZMko4RezPnCawhpxScf6r9K23FEKyqia06fNxAK5Ur7/KJVvMrMny+aw6fkQWut3AWWigpQFODUMnyIpnztnoNRDOjeblRHY0YRKa5jnFTVbgNNeYEX9mXUdJomcs9dfUKwRBKBzsFxQNjq2+LTR91ZJUacvL0VYrzPZeG4k1OrfQNk8y4AeecygUQEBPmaufdp2GJu/9Xj6zj1uY+wSVOSEZjkj/78p8ZyzEKynywma8LgN+frPxdVRp/G6lrKs51BxWarpYKMcNDn/uUgUcX+I9CXPVgOv6i1VCc6PKQv5EHE5qbQ==${timestamp}`
-        ).toString('base64');
+    `${shortcode}${passkey}${timestamp}`
+).toString('base64');
 
         const response = await axios.post(
             'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest',
@@ -62,6 +62,7 @@ app.post('/api/donate', async (req, res) => {
                 }
             }
         );
+        console.log('Safaricom response:', response.data);
 
         res.json({
             message: 'Donation request processed',
