@@ -18,6 +18,10 @@ app.use(express.json());
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok' });
 });
+app.post('/callback', (req, res) => {
+    console.log('Callback:', JSON.stringify(req.body, null, 2));
+    res.status(200).json({ ResultCode: 0, ResultDesc: 'Accepted' });
+});
 
 app.post('/api/donate', async (req, res) => {
     try {
