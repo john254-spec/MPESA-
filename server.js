@@ -23,7 +23,7 @@ app.post('/callback', (req, res) => {
     res.status(200).json({ ResultCode: 0, ResultDesc: 'Accepted' });
 });
 
-app.post('/api/donate', async (req, res) => {app.post('/api/donate', async (req, res) => {
+app.post('/api/donate', async (req, res) => {
     console.log('POST /api/donate called');
     console.log(req.body);
     try {
