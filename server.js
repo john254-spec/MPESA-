@@ -2,11 +2,10 @@
 require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
-
 const app = express();
-
 const consumerKey = process.env.CONSUMER_KEY;
 const consumerSecret = process.env.CONSUMER_SECRET;
+const passkey = process.env.PASSKEY;
 const port = process.env.PORT || 10000;
 const shortcode = process.env.SHORTCODE;   // Match your Render variable name
 const phoneNumber = process.env.PHONE_NUMBER;
