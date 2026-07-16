@@ -65,20 +65,26 @@ app.post('/api/donate', async (req, res) => {
         console.log('Safaricom response:', response.data);
 
         res.json({
-            message: 'Donation request processed',
-            response: response.data
-        });
+    message: 'Donation request processed',
+    response: response.data
+});
 
-    } catch (error) {
-        console.error(
-            error.response ? error.response.data : error.message
-        );
+} catch (error) {
+    console.error("=== STK PUSH ERROR ===");
 
-        res.status(500).json({
-            message: 'Error processing donation',
-            error: error.response ? error.response.data : error.message
-        });
+    if (error.response) {
+        console.error("Status:", error.response.status);
+        console.error("Data:", JSON.stringify(error.response.data, null, 2));
+    } else {
+        console.error(error.message);
     }
+
+    res.status(500).json({
+        message: "Error processing donation"
+    });
+}
+});
+                
 });
 
 async function getAccessToken() {
