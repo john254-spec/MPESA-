@@ -38,6 +38,12 @@ app.post('/api/donate', async (req, res) => {
         const password = Buffer.from(
     `${shortcode}${passkey}${timestamp}`
 ).toString('base64');
+        console.log({
+    shortcode,
+    passkey,
+    timestamp,
+    password
+});
 
         const response = await axios.post(
             'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest',
