@@ -84,8 +84,6 @@ app.post('/api/donate', async (req, res) => {
 }
 });
                 
-});
-
 async function getAccessToken() {
     const response = await axios.get(
         'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials',
