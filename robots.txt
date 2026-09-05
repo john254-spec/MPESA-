@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Allow search engines to crawl the main website
+Allow: /$
+Allow: /#home
+Allow: /#donate
+Allow: /#about
+Allow: /#vision
+Allow: /#mission
+Allow: /#objectives
+Allow: /#values
+Allow: /#contact
+Allow: /#privacy
+
+# Block common private/technical areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /.git/
+
+# Sitemap
+Sitemap: https://mpesa-mk8c.onrender.com/sitemap.xml
